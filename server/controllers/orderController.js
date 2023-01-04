@@ -26,6 +26,44 @@ export const updateOrder = async (req, res) => {
   }
 };
 
+export const updateOrderToPaid = async (req, res) => {
+  try {
+    const order = await OrderModal.findById(req.params.id);
+
+    if (order) {
+      order.isPaid = true;
+      order.paidAt = Date.now();
+      order.paymentResult = {
+        id: req.body.id,
+        status: req.body.status,
+        update_time: req.body.update_time,
+        email_address: req.body.payer.email_address,
+      };
+
+      const updatedOrder = await order.save();
+
+      res.status(201).json(updatedOrder);
+    }
+  } catch (error) {
+    res.status(404).json(error);
+  }
+};
+export const updateOrderToDelivered = async (req, res) => {
+  try {
+    const order = await OrderModal.findById(req.params.id);
+
+    if (order) {
+      order.isDelivered = true;
+      order.deliveredAt = Date.now();
+      const updatedOrder = await order.save();
+
+      res.status(201).json(updatedOrder);
+    }
+  } catch (error) {
+    res.status(404).json(error);
+  }
+};
+
 export const deleteOrder = async (req, res) => {
   try {
     await OrderModal.findByIdAndDelete(req.params.id);
@@ -35,10 +73,22 @@ export const deleteOrder = async (req, res) => {
   }
 };
 
-export const getUserOrder = async (req, res) => {
+export const getUserOrders = async (req, res) => {
   try {
-    const UserOrder = await OrderModal.findOne({ userId: req.params.userId });
+    const UserOrder = await OrderModal.find({ user: req.user._id });
     res.status(200).json(UserOrder);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+};
+
+export const getOrderById = async (req, res) => {
+  try {
+    const Order = await OrderModal.findById(req.params.id).populate(
+      "user",
+      "name email"
+    );
+    res.status(200).json(Order);
   } catch (error) {
     res.status(500).json(error);
   }

@@ -9,7 +9,7 @@ const authReducer = (state = { authData: null }, action) => {
       localStorage.clear();
       return { ...state, authData: null, loading: false, errors: null };
     default:
-      break;
+      return state;
   }
 };
 

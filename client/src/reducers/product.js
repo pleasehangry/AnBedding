@@ -1,7 +1,7 @@
 import {
   FETCH_ALL_PRODUCT,
   FETCH_PRODUCT,
-  CRECREATE_PRODUCT,
+  CREATE_PRODUCT,
   DELETE_PRODUCT,
   UPDATE_PRODUCT,
 } from "../constants/productConstants";
@@ -26,7 +26,7 @@ const productReducer = (state = { isLoading: true, products: [] }, action) => {
         currentPage: action.payload.currentPage,
         numberofPages: action.payload.numberofPages,
       };
-    case CRECREATE_PRODUCT:
+    case CREATE_PRODUCT:
       return { ...state, products: [...state.products, action.payload] };
     case UPDATE_PRODUCT:
       return {

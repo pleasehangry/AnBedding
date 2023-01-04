@@ -41,8 +41,11 @@ export const deleteCart = (id) => API.delete(`/cart/${id}`);
 
 // ORDER
 export const fetchAllOrder = () => API.get(`/order`);
-export const fetchOrder = (id) => API.get(`/order/find/${id}`);
+export const fetchOrderById = (id) => API.get(`/order/${id}`);
+export const fetchUserOrders = () => API.get(`/order}`);
 export const createOrder = (newOrder) => API.post("/order", newOrder);
 export const updateOrder = (id, updatedOrder) =>
   API.put(`/order/${id}`, updatedOrder);
+export const updateOrderToDelivered = (id) => API.put(`/order/${id}/deliver`);
+export const updateOrderToPaid = (id) => API.put(`/order/${id}/pay`);
 export const deleteOrder = (id) => API.delete(`/order/${id}`);
