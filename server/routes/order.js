@@ -4,7 +4,7 @@ import {
   verifyToken,
   verifyTokenAndAuthorization,
   verifyTokenAndAdmin,
-} from "../middlewares/verifyTokens";
+} from "../middlewares/verifyTokens.js";
 
 import {
   createOrder,
@@ -16,7 +16,7 @@ import {
   updateOrderToPaid,
   getUserOrders,
   getOrderById,
-} from "../controllers/orderController";
+} from "../controllers/orderController.js";
 
 const router = express.Router();
 

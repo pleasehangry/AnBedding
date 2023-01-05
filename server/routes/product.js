@@ -2,21 +2,20 @@ import express from "express";
 const router = express.Router();
 
 import {
-  verifyToken,
   verifyTokenAndAuthorization,
   verifyTokenAndAdmin,
-} from "../middlewares/verifyTokens";
+} from "../middlewares/verifyTokens.js";
 import {
   create,
   getAllProduct,
   getProduct,
   remove,
   update,
-} from "../controllers/beddingController";
+} from "../controllers/productController.js";
 
 router.post("/", verifyTokenAndAdmin, create);
 router.put("/:id", verifyTokenAndAdmin, update);
 router.delete("/:id", verifyTokenAndAdmin, remove);
-router.get("/", getAllProduct);
-router.get("/:id", getProduct);
+router.get("/", verifyTokenAndAdmin, getAllProduct);
+router.get("/:id", verifyTokenAndAuthorization, getProduct);
 export default router;

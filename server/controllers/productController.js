@@ -1,5 +1,5 @@
 import { Router } from "express";
-import BeddingModal from "../models/bedding";
+import ProductModal from "../models/product.js";
 
 export const create = async (req, res) => {
   const newProduct = new Product(req.body);
@@ -14,7 +14,7 @@ export const create = async (req, res) => {
 
 export const update = async (req, res) => {
   try {
-    const updatedProduct = await BeddingModal.findByIdAndUpdate(
+    const updatedProduct = await ProductModal.findByIdAndUpdate(
       req.params.id,
       {
         $set: req.body,
@@ -30,7 +30,7 @@ export const update = async (req, res) => {
 
 export const remove = async (req, res) => {
   try {
-    await BeddingModal.findByIdAndDelete(req.params.id);
+    await ProductModal.findByIdAndDelete(req.params.id);
     res.status(200).json("Product has been deleted...");
   } catch (error) {
     res.status(500).json.error;
@@ -45,22 +45,22 @@ export const getAllProduct = async (req, res) => {
     let products;
 
     if (qNew) {
-      products = await BeddingModal.find().sort({ createAt: -1 }).limit(1);
+      products = await ProductModal.find().sort({ createAt: -1 }).limit(1);
     } else if (qTag) {
-      products = await BeddingModal.find({
+      products = await ProductModal.find({
         tags: {
           $in: [qTag],
         },
       });
     } else {
-      products = await BeddingModal.find();
+      products = await ProductModal.find();
     }
   } catch (error) {}
 };
 
 export const getProduct = async (req, res) => {
   try {
-    const product = await BeddingModal.findById(req.params.id);
+    const product = await ProductModal.findById(req.params.id);
 
     res.status(200).json(product);
   } catch (err) {

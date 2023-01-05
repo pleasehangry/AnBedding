@@ -1,6 +1,6 @@
 import CryptoJS from "crypto-js";
 
-import UserModal from "../models/user";
+import UserModal from "../models/user.js";
 
 export const updateUser = async (req, res) => {
   if (req.body.password) {

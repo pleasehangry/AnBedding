@@ -1,4 +1,4 @@
-import OrderModal from "../models/order";
+import OrderModal from "../models/order.js";
 
 export const createOrder = async (req, res) => {
   const neworder = new OrderModal(req.body);

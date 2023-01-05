@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 import CryptoJS from "crypto-js";
 
-import UserModal from "../models/user";
+import UserModal from "../models/user.js";
 
 // REGISTER
 

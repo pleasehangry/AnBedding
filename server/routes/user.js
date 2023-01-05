@@ -4,14 +4,14 @@ import {
   verifyToken,
   verifyTokenAndAdmin,
   verifyTokenAndAuthorization,
-} from "../middlewares/verifyTokens";
+} from "../middlewares/verifyTokens.js";
 import {
   updateUser,
   deleteUser,
   getAllUser,
   getStatsUser,
   getUser,
-} from "../controllers/userController";
+} from "../controllers/userController.js";
 
 const router = express.Router();
 
