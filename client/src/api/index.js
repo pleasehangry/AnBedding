@@ -25,7 +25,7 @@ export const register = (formdata) => API.post("/auth/register", formdata);
 
 // USER
 export const fetchUser = (id) => API.get(`/user/${id}`);
-export const fetchUsers = (id) => API.get(`/user`);
+export const fetchUsers = () => API.get(`/user`);
 export const fetchStatsUser = (id) => API.get(`/user/stats`);
 export const updateUser = (id, updatedUser) =>
   API.put(`/user/${id}`, updatedUser);
