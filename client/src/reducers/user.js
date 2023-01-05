@@ -10,9 +10,12 @@ export const userReducer = (state = {}, action) => {
       return { ...state, loading: false, succes: true };
     case actionType.USER_LIST_SUCCESS:
       return { ...state, loading: false, users: action.payload };
+    case actionType.USER_UPDATE_PROFILE_SUCCESS:
+      return { ...state, loading: false, user: action.payload };
     case actionType.USER_DETAILS_FAIL:
     case actionType.USER_LIST_FAIL:
-    case actionType.USER_UPDATE_FAIL:
+    case actionType.USER_DELETE_FAIL:
+    case actionType.USER_UPDATE_PROFILE_FAIL:
       return { ...state, loading: false, error: action.payload };
     default:
       return state;
