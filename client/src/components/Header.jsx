@@ -338,7 +338,7 @@ const Header = () => {
             </span>
             <input
               type="text"
-              className="text-lg h-full text-headingColor flex-1 outline-0 p-2"
+              className="text-3xl h-full text-headingColor flex-1 outline-0 p-2"
               placeholder="Bạn muốn tìm gì?"
             />
             <span
@@ -399,6 +399,70 @@ const Header = () => {
                       </li>
                     ))} */}
                 </ul>
+              </div>
+              <div>
+                <h3 className="my-2 text-lg text-headingColor">Sản Phẩm</h3>
+                <a href="#">
+                  <img
+                    className="w-full"
+                    src="https://cdn.shopify.com/s/files/1/0507/9017/0795/collections/Category_BedsHeadboards_302x302_2x_9d97590e-5b43-4a60-98e5-62c58fba1ab7_302x@2x.jpg?v=1672143158"
+                    alt="bed"
+                  />
+                </a>
+                <a className="block mt-2 text-base text-textColor" href="#">
+                  Bed Name
+                </a>
+                <a className="text-sm" href="#">
+                  From:
+                  <span className="ml-1 text-red-900">1000.000vnd</span>
+                  <span className="line-through ml-1 text-textColor">
+                    2.000.000vnd
+                  </span>
+                </a>
+              </div>
+              <div className="mt-11">
+                <a href="#">
+                  <img
+                    className="w-full"
+                    src="https://cdn.shopify.com/s/files/1/0507/9017/0795/collections/Category_BedsHeadboards_302x302_2x_9d97590e-5b43-4a60-98e5-62c58fba1ab7_302x@2x.jpg?v=1672143158"
+                    alt="bed"
+                  />
+                </a>
+                <a className="block mt-2 text-base text-textColor" href="#">
+                  Bed Name
+                </a>
+                <a className="text-sm" href="#">
+                  From:
+                  <span className="ml-1 text-red-900">1000.000vnd</span>
+                  <span className="line-through ml-1 text-textColor">
+                    2.000.000vnd
+                  </span>
+                </a>
+              </div>
+              <div>
+                <a
+                  href="#"
+                  className="block my-2 text-lg text-right text-headingColor hover:text-primary"
+                >
+                  Tất cả sản phẩm
+                </a>
+                <a href="#">
+                  <img
+                    className="w-full"
+                    src="https://cdn.shopify.com/s/files/1/0507/9017/0795/collections/Category_BedsHeadboards_302x302_2x_9d97590e-5b43-4a60-98e5-62c58fba1ab7_302x@2x.jpg?v=1672143158"
+                    alt="bed"
+                  />
+                </a>
+                <a className="block mt-2 text-base text-textColor" href="#">
+                  Bed Name
+                </a>
+                <a className="text-sm" href="#">
+                  From:
+                  <span className="ml-1 text-red-900">1000.000vnd</span>
+                  <span className="line-through ml-1 text-textColor">
+                    2.000.000vnd
+                  </span>
+                </a>
               </div>
             </div>
           </div>
