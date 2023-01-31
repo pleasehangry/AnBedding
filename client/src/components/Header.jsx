@@ -12,6 +12,8 @@ import {
   FiXCircle,
 } from "react-icons/fi";
 
+import { navVariants } from "../utils/motion";
+
 import Logo from "../assets/imgs/Logo.png";
 
 const Header = () => {
@@ -76,19 +78,19 @@ const Header = () => {
   ];
 
   return (
-    <header className="w-screen fixed z-50 bg-white px-4 md:px-16 shadow-sm">
+    <motion.header
+      variants={navVariants}
+      initial="hidden"
+      whileInView="show"
+      className="w-screen top-0 fixed z-50 bg-white px-4 md:px-16 shadow-sm h-16"
+    >
       {/* desktop & tablet */}
       <div className="hidden md:flex w-full h-full items-center justify-between">
         <Link to="/" className="m-2">
           <img src={Logo} alt="Logo" className="object-contain w-20" />
         </Link>
         <div className="flex items-center h-full">
-          <motion.ul
-            initial={{ opacity: 0, x: 200 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: 200 }}
-            className="flex items-center"
-          >
+          <ul className="flex items-center">
             {["Sản Phẩm", "Đang giảm giá", "Cửa Hàng Gần Nhất", "Dịch Vụ"].map(
               (item, index) => (
                 <div className="group/item" key={index}>
@@ -188,7 +190,7 @@ const Header = () => {
                 </div>
               )
             )}
-          </motion.ul>
+          </ul>
         </div>
         <div className="flex items-center">
           <motion.div
@@ -331,7 +333,7 @@ const Header = () => {
       </div>
       {/* search section */}
       {isSearch && (
-        <div className="absolute top-full items-center left-0 w-full right-0">
+        <div className="absolute top-full items-center left-0 w-full right-0 bg-white">
           <div className="flex items-center p-5">
             <span className="text-3xl text-headingColor px-3 h-full flex items-center">
               <FiSearch />
@@ -350,7 +352,7 @@ const Header = () => {
               <FiXCircle />
             </span>
           </div>
-          <div className="absolute top-full left-0 right-0">
+          <div className="absolute top-full left-0 right-0 bg-white">
             <div className="grid grid-cols-4 gap-4 border-t border-slate-200 mx-20 p-4">
               <div>
                 <h3 className="p-2 text-lg text-headingColor">Gợi ý</h3>
@@ -468,7 +470,7 @@ const Header = () => {
           </div>
         </div>
       )}
-    </header>
+    </motion.header>
   );
 };
 

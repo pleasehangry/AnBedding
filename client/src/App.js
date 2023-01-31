@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { Header, Footer } from "./components";
+import { Header, Footer, LiveChat } from "./components";
 import {
   CartScreen,
   HomeScreen,
@@ -17,13 +17,14 @@ import {
   UserEditScreen,
   UserListScreen,
 } from "./screens";
+
 import "./App.css";
 
 function App() {
   return (
     <Router>
       <Header />
-      <main className="py-3">
+      <main className="">
         <Routes>
           <Route path="/order/:id" element={<OrderScreen />} />
           <Route path="/shipping" element={<ShippingScreen />} />
@@ -60,6 +61,8 @@ function App() {
           <Route path="/" element={<HomeScreen />} exact />
         </Routes>
       </main>
+      <Footer />
+      <LiveChat />
     </Router>
   );
 }
